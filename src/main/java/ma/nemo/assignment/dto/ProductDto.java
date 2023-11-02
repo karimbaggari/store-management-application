@@ -13,6 +13,10 @@ public class ProductDto {
   private Date creationDate;
   private Date modificationDate;
 
+  private Date expirationDate;
+
+  private Integer thresholdQuantity;
+
   public Long getProductId() {
     return productId;
   }
@@ -75,5 +79,21 @@ public class ProductDto {
 
   public void setModificationDate(Date modificationDate) {
     this.modificationDate = modificationDate;
+  }
+
+  public Date getExpirationDate() {
+    return expirationDate;
+  }
+
+  public void setExpirationDate(Date expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public Integer getThresholdQuantity() {
+    return thresholdQuantity;
+  }
+
+  public void setThresholdQuantity(Integer thresholdQuantity) {
+    this.thresholdQuantity = thresholdQuantity;
   }
 }

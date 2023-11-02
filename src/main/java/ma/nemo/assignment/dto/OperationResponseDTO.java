@@ -1,9 +1,9 @@
 package ma.nemo.assignment.dto;
 
-public class SupplyResponseDTO {
+public class OperationResponseDTO {
     private String message;
 
-    public SupplyResponseDTO(String message) {
+    public OperationResponseDTO(String message) {
         this.message = message;
     }
 
@@ -14,7 +14,5 @@ public class SupplyResponseDTO {
     public void setMessage(String message) {
         this.message = message;
     }
-
-    // getters and setters
 }
 
