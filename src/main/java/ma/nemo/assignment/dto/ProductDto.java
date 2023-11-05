@@ -9,7 +9,7 @@ public class ProductDto {
 
   private String description;
   private Double unitPrice;
-  private Integer quantityInStock;
+  private Integer quantityInStock = 0;
   private Date creationDate;
   private Date modificationDate;
 

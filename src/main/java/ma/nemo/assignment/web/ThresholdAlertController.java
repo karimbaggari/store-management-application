@@ -13,7 +13,6 @@ public class ThresholdAlertController {
 
     @Autowired
     private ThresholdAlertService thresholdAlertService;
-
     @GetMapping
     public ResponseEntity<List<ProductDto>> getProductsBelowThreshold() {
         List<ProductDto> productsBelowThreshold = thresholdAlertService.getProductsBelowThreshold();

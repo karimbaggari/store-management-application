@@ -38,6 +38,13 @@ public class Product {
   @Temporal(TemporalType.TIMESTAMP)
   private Date modificationDate;
 
+  private Date expirationDate;
+
+  private Integer thresholdQuantity;
+
+  public Product() {
+  }
+
   public Long getProductId() {
     return productId;
   }
@@ -102,5 +109,20 @@ public class Product {
     this.modificationDate = modificationDate;
   }
 
-  // Getters, setters, etc.
+  public Date getExpirationDate() {
+    return expirationDate;
+  }
+
+  public void setExpirationDate(Date expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public void setThresholdQuantity(Integer thresholdQuantity) {
+    this.thresholdQuantity = thresholdQuantity;
+  }
+
+  public int getThresholdQuantity() {
+    return thresholdQuantity;
+  }
+
 }

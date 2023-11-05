@@ -15,6 +15,7 @@ public class ExpiryAlertController {
     @Autowired
     private ExpiryAlertService expiryAlertService;
 
+
     @GetMapping
     public ResponseEntity<List<ProductDto>> getExpiryAlerts() {
         List<ProductDto> expiringProducts = expiryAlertService.getExpiringProducts();

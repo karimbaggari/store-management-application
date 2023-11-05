@@ -1,9 +1,9 @@
 package ma.nemo.assignment.service;
 
+import ma.nemo.assignment.domain.Product;
 import ma.nemo.assignment.dto.OperationResponseDTO;
 import ma.nemo.assignment.dto.ProductDto;
 import ma.nemo.assignment.repository.ProductRepository;
-import ma.nemo.assignment.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,23 @@ public class SaleService {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private SaleRepository saleRepository;
+    public OperationResponseDTO addProductToInventory(ProductDto productDto) {
+        // Retrieve the product from the database using the product code
+        String productCode = productDto.getProductCode();
+        Product product = productRepository.findByProductCode(productCode);
 
-    public OperationResponseDTO sellProduct(ProductDto productDto) {
-        return new OperationResponseDTO("Sale successful for product: " + productDto.getProductCode());
+        if (product == null) {
+            return new OperationResponseDTO("Product not found for product code: " + productCode);
+        }
+
+        int requestedQuantity = productDto.getQuantityInStock(); // Requested quantity
+        int availableQuantity = product.getQuantityInStock();
+
+        if (requestedQuantity > availableQuantity) {
+            return new OperationResponseDTO("Insufficient stock for product code: " + productCode);
+        }
+
+        return new OperationResponseDTO("Sale confirmed for product code: " + productCode);
     }
+
 }

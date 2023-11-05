@@ -2,6 +2,8 @@ package ma.nemo.assignment.web;
 
 import ma.nemo.assignment.dto.OperationResponseDTO;
 import ma.nemo.assignment.dto.ProductDto;
+import ma.nemo.assignment.service.SupplyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/supply")
 public class SupplyController {
+    @Autowired
+    private SupplyService supplyService;
 
     @PostMapping
     public ResponseEntity<OperationResponseDTO> addProductToInventory(@RequestBody ProductDto productDto) {
-        if (productDto.getQuantityInStock() > 500) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new OperationResponseDTO("Quantity exceeds the maximum limit of 500 units."));
-        }
-        OperationResponseDTO response = new OperationResponseDTO("Product added to inventory: " + productDto.getProductCode());
+        OperationResponseDTO response = supplyService.addProductToInventory(productDto);
         return ResponseEntity.ok(response);
     }
 }
