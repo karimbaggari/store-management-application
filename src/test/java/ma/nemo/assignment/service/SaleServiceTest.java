@@ -39,7 +39,7 @@ public class SaleServiceTest {
         Mockito.when(productRepository.findByProductCode(productCode)).thenReturn(mockProduct);
 
         // Act
-        OperationResponseDTO response = saleService.addProductToInventory(productDto);
+        OperationResponseDTO response = saleService.saleProductFromInventory(productDto);
 
         // Assert
         assertEquals("Sale confirmed for product code: " + productCode, response.getMessage());
@@ -56,7 +56,7 @@ public class SaleServiceTest {
         Mockito.when(productRepository.findByProductCode(productCode)).thenReturn(null);
 
         // Act
-        OperationResponseDTO response = saleService.addProductToInventory(productDto);
+        OperationResponseDTO response = saleService.saleProductFromInventory(productDto);
 
         // Assert
         assertEquals("Product not found for product code: " + productCode, response.getMessage());
@@ -76,7 +76,7 @@ public class SaleServiceTest {
 
         Mockito.when(productRepository.findByProductCode(productCode)).thenReturn(mockProduct);
 
-        OperationResponseDTO response = saleService.addProductToInventory(productDto);
+        OperationResponseDTO response = saleService.saleProductFromInventory(productDto);
 
         assertEquals("Sale confirmed for product code: " + productCode, response.getMessage());
     }

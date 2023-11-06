@@ -1,5 +1,6 @@
 package ma.nemo.assignment.web;
 
+import io.swagger.v3.oas.annotations.Operation;
 import ma.nemo.assignment.dto.ProductDto;
 import org.springframework.http.ResponseEntity;
 import ma.nemo.assignment.service.ExpiryAlertService;
@@ -15,8 +16,8 @@ public class ExpiryAlertController {
     @Autowired
     private ExpiryAlertService expiryAlertService;
 
-
     @GetMapping
+    @Operation(summary = "Track and fetch products nearing their expiration date.")
     public ResponseEntity<List<ProductDto>> getExpiryAlerts() {
         List<ProductDto> expiringProducts = expiryAlertService.getExpiringProducts();
         return ResponseEntity.ok(expiringProducts);

@@ -12,7 +12,7 @@ public class SaleService {
     @Autowired
     private ProductRepository productRepository;
 
-    public OperationResponseDTO addProductToInventory(ProductDto productDto) {
+    public OperationResponseDTO saleProductFromInventory(ProductDto productDto) {
         // Retrieve the product from the database using the product code
         String productCode = productDto.getProductCode();
         Product product = productRepository.findByProductCode(productCode);

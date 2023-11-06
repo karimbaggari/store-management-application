@@ -1,5 +1,6 @@
 package ma.nemo.assignment.web;
 
+import io.swagger.v3.oas.annotations.Operation;
 import ma.nemo.assignment.dto.ReturnRequestDTO;
 import ma.nemo.assignment.dto.ReturnResponseDTO;
 import ma.nemo.assignment.service.ReturnService;
@@ -17,6 +18,7 @@ public class ReturnController {
     private ReturnService returnService;
 
     @PostMapping
+    @Operation(summary = "API endpoint to handle the return of products.")
     public ResponseEntity<ReturnResponseDTO> returnProduct(@RequestBody ReturnRequestDTO request) {
         ReturnResponseDTO response = returnService.returnProduct(request);
         return ResponseEntity.ok(response);

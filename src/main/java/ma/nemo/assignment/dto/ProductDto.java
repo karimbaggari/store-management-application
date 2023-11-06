@@ -14,7 +14,6 @@ public class ProductDto {
   private Date modificationDate;
 
   private Date expirationDate;
-
   private Integer thresholdQuantity;
 
   public Long getProductId() {

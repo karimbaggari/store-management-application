@@ -21,7 +21,6 @@ public class ReturnService {
 
         // Retrieve the product from the database using the product code
         Product product = productRepository.findByProductCode(productCode);
-        System.out.println(productCode);
         if (product == null) {
             return new ReturnResponseDTO("Product not found for product code: " + productCode);
         }
@@ -40,9 +39,6 @@ public class ReturnService {
         // Save the updated product information to the database
         productRepository.save(product);
 
-        // Implement additional logic, such as saving the return operation to the database.
-
         return new ReturnResponseDTO("Product returned successfully for product code: " + productCode);
     }
 }
-
