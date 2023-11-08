@@ -1,88 +1,56 @@
-## Description:
+NiceStore Application Documentation
+Overview
 
-Inventory management is essential for any sales business. In today's digital age, having a robust API-first approach ensures scalability, integration with other systems, and provides a foundation for future digital products.
+The NiceStore application is a Spring Boot-based web application designed to provide inventory management functionality. It offers a RESTful API for adding products to inventory. The application's primary goal is to efficiently manage the inventory by allowing users to add products.
+Features
 
-## Business Requirements:
+    Inventory Management: The core feature of the application is to manage an inventory of products. Users can add new products to the inventory.
 
-1. **Supply API**:
+Project Structure
 
-   Create an API endpoint to handle the addition of products to the inventory.
+The project is organized as follows:
 
-   **Feature Details**:
-  - Endpoint: `/api/supply`
-  - Method: `POST`
-  - Payload should include product code, quantity, and optionally, an expiration date for perishable goods.
-  - The maximum quantity that can be added in a single operation is 500 units.
+    Application: The application's main entry point is the NiceStoreApplication class, which is the Spring Boot application class.
 
-2. **Sale API**:
+    Controller: The SampleController class is responsible for handling HTTP requests related to product management. It exposes a single endpoint for adding products to the inventory.
 
-   Create an API endpoint to handle the sale of products.
+    Service: The SupplyService class contains business logic for product management. It is used by the SampleController to process requests and manage the inventory.
 
-   **Feature Details**:
-  - Endpoint: `/api/sale`
-  - Method: `POST`
-  - Payload should include product code and quantity.
-  - Ensure products are in stock before confirming the sale.
+    Testing: The application follows the Test-Driven Development (TDD) approach. Unit tests are implemented using JUnit to ensure the correctness of the application. Test cases are written before the actual functionality is implemented.
 
-3. **Product Return API**:
+API Documentation
 
-   Handle the return of products.
+The project uses the springdoc-openapi-ui library to automatically generate API documentation for the exposed endpoints. The API documentation can be accessed through the Swagger UI, which is available at the following URL:
 
-   **Feature Details**:
-  - Endpoint: `/api/return`
-  - Method: `POST`
-  - Payload should include product code, quantity, and reason for return.
-  - Returned products should be added back to the stock.
+    Swagger UI: http://localhost:8081/swagger-ui/index.html
 
-4. **Product Expiry Tracking API**:
+Getting Started
 
-   Track and fetch products nearing their expiration date.
+To run the NiceStore application, follow these steps:
 
-   **Feature Details**:
-  - Endpoint: `/api/expiry-alerts`
-  - Method: `GET`
-  - This endpoint should return a list of products nearing their expiration date.
+    Clone the project repository from GitHub.
 
-5. **Inventory Threshold Alerts API**:
+    Open the project in your favorite IDE or code editor.
 
-   Set thresholds and fetch products below the threshold.
+    Build and run the project using Maven or Gradle.
 
-   **Feature Details**:
-  - Endpoint: `/api/threshold-alerts`
-  - Method: `GET`
-  - This endpoint should return products below their set threshold.
-  - Endpoint: `/api/set-threshold`
-  - Method: `POST`
-  - Payload should include product code and threshold quantity.
+    Access the Swagger UI to explore and interact with the API:
 
-## Assignment:
+    http://localhost:8081/swagger-ui/index.html
 
-* The code has quality anomalies (best practices, abstraction, readability...) and bugs.
-  * Locate as many as possible.
-  * Attempt to improve the code quality.
-  * Resolve detected bugs.
-* Implement all the above API endpoints.
-* Ensure each API has appropriate error handling, especially for edge cases.
-* Add unit tests for each API endpoint.
-* Document each API endpoint using tools like Swagger or Postman, detailing request/response formats, headers, and possible error messages.
+Testing
 
-* **Nice to have**:
-  - Introduce authentication and access rights management on the API endpoints to differentiate roles (e.g., administrator, user, etc.)
+The project follows Test-Driven Development (TDD) practices. Test cases are written before implementing the actual functionality. JUnit is used for writing unit tests to ensure the correctness of the application.
+Dependencies
 
-## How to use:
-To build the project, you will need:
-* Java 17
-* Maven
+    Spring Boot: The project is built on the Spring Boot framework, which provides a robust foundation for building web applications.
 
-Build command:
-```
-mvn clean install
-```
+    springdoc-openapi-ui: This library is used for generating API documentation and Swagger UI.
 
-Run command:
-```
-./mvnw spring-boot:run 
-## or use your preferred method (IDE, java -jar, docker...)
-```
+    JUnit: JUnit is used for writing unit tests to validate the application's functionality.
 
-This assignment now emphasizes an API-first approach, ensuring that the system is ready for integration
+Conclusion
+
+The NiceStore application is a simple yet efficient inventory management system built on Spring Boot. It follows best practices by generating API documentation and adheres to the principles of Test-Driven Development to ensure code quality.
+
+Feel free to explore the code and test cases to understand how the application works and how it can be extended to meet your specific requirements.
