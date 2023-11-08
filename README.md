@@ -1,5 +1,3 @@
-Certainly! Here's an updated version of the assignment with a focus on API-first features:
-
 ## Description:
 
 Inventory management is essential for any sales business. In today's digital age, having a robust API-first approach ensures scalability, integration with other systems, and provides a foundation for future digital products.
@@ -86,10 +84,5 @@ Run command:
 ./mvnw spring-boot:run 
 ## or use your preferred method (IDE, java -jar, docker...)
 ```
-
-## How to submit:
-* Fork the project into your personal GitLab space.
-* Make the necessary changes.
-* Send us the link, along with the API documentation.
 
 This assignment now emphasizes an API-first approach, ensuring that the system is ready for integration
